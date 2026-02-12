@@ -78,15 +78,17 @@ function handleClick() {
 } 
 
 function timerDate(userSelectedDate) {
-  const timerTime = convertMs(userSelectedDate - new Date());
+  const userTime = userSelectedDate - new Date();
+  const timerTime = convertMs(userTime);
   
-  valueDays.textContent = addLeadingZero(timerTime.days);
-  valueHours.textContent = addLeadingZero(timerTime.hours);
-  valueMinutes.textContent = addLeadingZero(timerTime.minutes);
-  valueSeconds.textContent = addLeadingZero(timerTime.seconds);
-  if (timerTime.days === 0 & timerTime.hours === 0 & timerTime.minutes === 0 & timerTime.seconds === 0) {
+  if (userTime <= 0) {
     clearInterval(intervalId);
     input.disabled = false;
+  } else {
+    valueDays.textContent = addLeadingZero(timerTime.days);
+    valueHours.textContent = addLeadingZero(timerTime.hours);
+    valueMinutes.textContent = addLeadingZero(timerTime.minutes);
+    valueSeconds.textContent = addLeadingZero(timerTime.seconds);
   }
 }
 
