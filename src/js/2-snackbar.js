@@ -9,10 +9,7 @@ form.addEventListener("submit", handleSubmit);
 
 function handleSubmit(event) {
   event.preventDefault();
-  console.log(event.target.elements.delay.value);
-  console.log(event.target.elements.state.value);
-    
-
+  
   const delay = event.target.elements.delay.value;
   const state = event.target.elements.state.value;
 
