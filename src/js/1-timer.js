@@ -78,18 +78,21 @@ function handleClick() {
 } 
 
 function timerDate(userSelectedDate) {
-  const userTime = userSelectedDate - new Date();
-  const timerTime = convertMs(userTime);
-  
+  let userTime = userSelectedDate - new Date();
   if (userTime <= 0) {
+    userTime = 0;
     clearInterval(intervalId);
     input.disabled = false;
-  } else {
+  }
+  const timerTime = convertMs(userTime);
+  
     valueDays.textContent = addLeadingZero(timerTime.days);
     valueHours.textContent = addLeadingZero(timerTime.hours);
     valueMinutes.textContent = addLeadingZero(timerTime.minutes);
     valueSeconds.textContent = addLeadingZero(timerTime.seconds);
-  }
+
+  
+  
 }
 
 function addLeadingZero(value) {
